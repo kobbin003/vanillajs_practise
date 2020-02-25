@@ -1,0 +1,8 @@
+--> use float to "pocket" elements like we did with the <img> elements.
+
+1--> console.count();
+
+windows.scrollY;
+windows.innerHeight;
+x.offsetTop;
+x.height;

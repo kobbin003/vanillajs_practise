@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content=width=device-width, initial-scale=1>
+    </head>
+    <style>
+        
+    </style>
+    <body>
+       
+    </body>
+    <script>
+        const people=[{name:"Wes", year:1988},
+					 {name:"Kait", year: 1986},
+					 {name:"Irv", year:1970},
+					 {name:"Lux", year: 2015}];
+		
+		const comments=[{text:"Love this!", id:523423},
+					   {text:"Super good", id:823423},
+					   {text:"Youe are the best", id:2039842},
+					   {text:"Ramen in my fav food ever", id: 123523},
+					   {text:"Nice Nice Nice", id:542328}];
+		
+		const isAdult= people.some(x=>new Date().getFullYear()-x.year>18);
+		console.log(isAdult);
+//		
+		const allAdult= people.every(x=>new Date().getFullYear()-x.year>18);
+		console.log({allAdult});
+		
+		const liest=people.sort((x,y)=>x.year>y.year?-1:1);
+		//OR
+		//const liest=people.sort((x,y)=>y.year-x.year)
+		console.log({liest});
+		/* 1=true i.e swap, -1=false i.e do not swap
+		in this case, swap only if x.year< y.year */
+		
+//		const descending=people.sort((a,b)=>a.year>b.year?1:-1);
+//		console.log(descending);/*two sort function mess up things.*/
+		
+		const findText=comments.find(x=>x.id===523423);
+		console.log(findText);
+//		
+		const findIndex=comments.findIndex(x=>x.id===823423);
+		console.log({findIndex});
+//		
+		comments.splice(findIndex,1);
+//		const newcomments=[
+//			...comments.splice(0,findIndex),
+//			...comments.splice(findIndex+1)
+//		];
+		
+		console.table(comments);
+		
+    </script>
+</html>

@@ -1,0 +1,53 @@
+--> <video></video>
+Attributes: -controls, -height="..px", -width="..px", -src, -loop, -poster,
+
+
+--><button></button>
+Attributes: -autofocus, -type= button, reset, submit
+(Html entity) &#9658== play button.
+
+--><input type="range">
+Attribute: -step=".."
+
+
+
+JAVASCRIPT-
+
+--> events:
+"play" "pause" "timeupdate" "ended"
+--> there is "play" method, "pause" method, "paused" property but no "play" property.
+
+-->innerHtml vs innerText-->character entity number.
+
+-->video.currentTime
+
+-->bracket notation v/s dot notation
+- handleRangeUpdate is a good example of using bracket notation since we cannot use dot notation like "video.this.name".
+
+-->see how attributes such as data- ,name etc. are used in case of range-input.
+
+--> -transition thorugh javascript for innerHtml i.e for play and pause button;???
+Ans: use opacity and div(for selecting only the play symbol).
+** for other elements you can use (query..).style.transition="..";
+
+-->you could either use 'this.ended' e.g inside update_button or separately use "ended" event e.g update_buttonEnd.
+
+--> "&#8635" works better, without creating any fuss, because "&#8634" pushes the whole "downer_control" div below wheile transitioning from pause to replay button.
+
+CSS-
+--> max-width...????????
+--> line-height...?????
+
+
+--> class after pseudo-class
+E.g:    .container:hover .kontrols_inner{}
+
+--> "hover-off":-  put transitions:.... In the x:hover sectionn too.
+
+
+-->object-fit
+
+-->you can either use display or translateY for hover effect.
+See how using overflow: hidden; in parent div helps in the later case
+
+--> use transform:scale(..) instead of font-size to increase an element size without effecting the size of it parent.

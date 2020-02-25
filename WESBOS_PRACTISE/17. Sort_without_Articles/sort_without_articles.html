@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content=width=device-width, initial-scale=1>
+    </head>
+    <style>
+		body{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			width: 100vw;
+			padding: 0;
+			margin: 0;
+		}
+/*		A>*/
+/*
+		.kobing{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.kobing::before{
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-image: url(scene2.jpeg);
+			background-repeat: no-repeat;
+			background-size:cover;
+			filter: grayscale(100%);
+		}
+*/
+		.kobing{
+			background-image: linear-gradient(rgba(13, 13, 13, 0.69),rgba(72, 62, 56, 0.69)),url(scene2.jpeg);
+			background-repeat: no-repeat;
+			background-size:cover;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		li{
+			height: 30px;
+			width: 350px;
+			background-color: white;
+/*			list-style: none;*/
+			list-style-position: inside;
+			border-bottom: 0.07px solid rgb(214, 214, 214);
+			padding-left: 10px;
+			color: black;
+			padding-bottom: 10px;
+			line-height: 0px;
+		}
+		p{
+			display: inline-block;
+		}
+    </style>
+    <body>
+       <div class="kobing">
+		   <ul id="bands"></ul>
+	   </div>
+    </body>
+<script>
+	const bands=['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+	
+//	function sorter(x,y){
+//		if(x>y){
+//			return 1;
+//		}
+//		else{
+//			return -1;
+//		}
+//	}
+	
+	// * * * * * MY WAY * * * * *
+	function sorter(x,y){
+		const xnoArticle= x.split(" ");
+		const ynoArticle= y.split(" ");
+		if(xnoArticle[0]=="The" || xnoArticle[0]=="An" || xnoArticle[0]=="A")
+			{
+				xnoArticle.splice(0,1);
+			}
+		if(ynoArticle[0]=="The" || ynoArticle[0]=="An" || ynoArticle[0]=="A")
+			{
+				ynoArticle.splice(0,1);
+			}
+//		console.log(xnoArticle);
+		//EEEEE
+		return (xnoArticle.join('')>ynoArticle.join(''))?1:-1;
+//		return (xnoArticle>ynoArticle)?console.log(xnoArticle):console.log(ynoArticle);
+	}
+	var sortedBand=bands.sort(sorter);
+	
+	const bandlist=document.querySelector("#bands");
+	const unroderList=document.querySelector("ul");
+//	for(let i=0;i<bands.length;i++){
+//		var listt= document.createElement("li");
+//		unroderList.appendChild(listt).appendChild(document.createElement("p")).innerHTML=bands[i];
+//	}
+	
+	//* * * * * * * * * * * * USING 'TEMPLATE/STRING LITERAL' INSTEAD OF 'CREATE' & 'APPEND' 
+	unroderList.innerHTML=sortedBand.map(x=>`<li><p>${x}</p></li>`).join('');
+//	unroderList.innerHTML=`<li>HEHEHEHEH</li>`
+	
+	
+	// * * * * * WESBOS WAY * * * * *
+	// REPLACE "split" and "slice" in MY WAY with "replace"
+//	function replaceArticle(a){
+//		return a.replace(/^the |a |an /i, " ").trim();
+//	}
+//	var sortedBand=bands.sort((x,y)=>replaceArticle(x)>replaceArticle(y)?1:-1);
+//	console.log(sortedBand);
+//	
+//	const bandlist=document.querySelector("#bands");
+//	const unroderList=document.querySelector("ul");
+//    unroderList.innerHTML=sortedBand.map(x=>`<li><p>${x}</p></li>`).join('');
+	
+</script>
+</html>

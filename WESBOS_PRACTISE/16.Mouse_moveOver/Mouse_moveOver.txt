@@ -1,0 +1,12 @@
+--> Entering vertically and horizontally using flex;
+
+--> 1> DESTRUCTURING.
+
+--> 2> offsetX v/s offsetLeft;
+      Former: horizontal distance of cursor/mouse moved over the specific/chosen element.
+      Later: horizontal distance from the window.
+      Hence, the later will be constant for a specific/chosen element.
+
+--> 3> this vs e.target
+       this- where the eventlistener is added
+       target- where the cursor is.

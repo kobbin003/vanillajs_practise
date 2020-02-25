@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+	   <meta charset="utf-8">
+      <title>KONAMI code</title>
+	   <style>
+		  
+	   </style>
+   </head>
+   
+   <body>
+      <p>Loading............</p>
+<script>
+	const pressed_array=[];
+	const secretCode="kobin";
+//1	
+window.addEventListener("keyup",(e)=>{
+	console.log(e.key);
+	pressed_array.push(e.key);
+	console.log(pressed_array);
+	pressed_array.splice(secretCode.length-1,secretCode.length);
+	if(pressed_array.join("").includes(secretCode))
+		{
+			console.log("DING..DING..DING!!!!!");
+		}
+									 });
+</script>
+      
+   </body>
+</html>
