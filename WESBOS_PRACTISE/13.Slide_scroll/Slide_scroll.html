@@ -50,6 +50,7 @@
 			   transform: translateX(0);
 /*			   transform: scale(0.5);*/
 /*			   transition: transform 1s;*/
+			   transition: transform 1s ease-in;
 		   }
 		   
 	   </style>
@@ -155,13 +156,18 @@ var images=document.querySelectorAll("img");
 			if(fromUp && fromDown)
 				{
 					x.classList.add("slidein");
+					console.log(`clientheight: ${x.clientHeight}`);
+			console.log(`offsetheight: ${x.offsetHeight}`);
+			console.log(`height: ${x.height}`);
 				}
 			else{
 				x.classList.remove("slidein");
 			}
+			
 		});
 	}
 	window.addEventListener("scroll",checkSlide);
+	document.write("difference between height's' : https://www.geeksforgeeks.org/what-is-the-difference-between-offsetheight-and-clientheight/");
 </script>
       
    </body>

@@ -8,3 +8,6 @@ Also this will show 'blue' or 'black' colored font on the console of browser acc
 
 BBB
 -reduce method.
+
+CCC
+-math.floor....mind the difference between Math.floor and Math.round

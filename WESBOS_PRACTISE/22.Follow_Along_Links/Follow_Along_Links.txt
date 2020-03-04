@@ -1,0 +1,20 @@
+-multiple linear-gradient:
+> it works on background , not on background-color.
+> Use this technique of "fade-to-white" for every layer.
+> Here, every linear-gradient forms a layer on top of each other, just like photoshop.
+> linear-gradient(angle, from-color x%, to-color y%)
+x=100 ===> background color= from-colour.
+y=0 ===> background color= to-color.
+I.e more the "x" more will be the from-colour and more the "y" less will be the to-color.
+
+-<nav>:
+-it is preferable to write nav items as <li> and since it is mostly links, we will use <a> too.
+Therefore we will use <nav><li><a></a></li></nav>
+
+
+
+-getBoundingClientRect()
+
+-z-index works only on positioned elements.
+
+- see how the background of <a> is transparented to let the span , which is z-indexed below, show up. 

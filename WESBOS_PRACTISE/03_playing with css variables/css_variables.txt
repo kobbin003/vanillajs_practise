@@ -21,3 +21,7 @@ e.g:
 -> style.property_name
 OR
 style.setProperty("property_name",propert_value)
+
+- documentElement:
+The documentElement property returns the documentElement of the document, as an Element object.
+For HTML documents the returned object is the <html> element.

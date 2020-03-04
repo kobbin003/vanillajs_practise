@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content=width=device-width, initial-scale=1>
+    </head>
+    <style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			width: 100vw;
+			height: 100vh;
+			background-color: #ffd801;
+			background-image: linear-gradient(rgba(0, 0, 0, 0.08),rgba(0, 0, 0, 0.08));
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.container{
+			width: 60%;
+			height: 80%;
+			background-color: white;
+			background-image: linear-gradient(rgba(0, 0, 0, 0.03),rgba(0, 0, 0, 0.03));
+			box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.24);
+		}
+    </style>
+    <body>
+		<div class="container"></div>
+<!--		<button onclick="clik()">click</button>-->
+    </body>
+    <script>
+		  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  const recognition = new SpeechRecognition();
+  recognition.interimResults = true;
+  recognition.lang = 'en-US';
+  
+  let p = document.createElement('p');
+  const words = document.querySelector('.words');
+  words.appendChild(p);
+
+  recognition.addEventListener('result', e => {
+    const transcript = Array.from(e.results)
+      .map(result => result[0])
+      .map(result => result.transcript)
+      .join('');
+
+      const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
+      p.textContent = poopScript;
+
+      if (e.results[0].isFinal) {
+        p = document.createElement('p');
+        words.appendChild(p);
+      }
+  });
+
+  recognition.addEventListener('end', recognition.start);
+
+  recognition.start();
+    </script>
+</html>
