@@ -1,4 +1,0 @@
-CANVAS-
-
-- <canvas> always with "id".
-- getContext("2d");
