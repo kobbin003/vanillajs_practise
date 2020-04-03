@@ -1,2 +1,0 @@
-1.
-Parametered arrow function(I.e (e)=>{code}) must have curly"{}" brackets
