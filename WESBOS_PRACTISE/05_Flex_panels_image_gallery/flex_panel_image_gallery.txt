@@ -1,0 +1,11 @@
+Flex:1 (on flex-child)
+
+Flex:5
+
+--> for queryselectorAll, you have to use "forEach" method for manipulation.
+
+--> transitionend(e)  -->e.propertyName
+
+--> .panel > *:first-child
+
+--> animate-(instead)-> use transition>transform>translateY or translateX

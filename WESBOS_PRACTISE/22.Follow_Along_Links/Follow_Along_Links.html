@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content=width=device-width, initial-scale=1>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300|Rubik&display=swap" rel="stylesheet">
+    </head>
+    <style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			font-family: 'Rubik';
+			font-family: 'Roboto';
+			line-height: 25px;
+			letter-spacing: 0.3px;
+			height: 100vh;
+		}
+		.container{
+			width: 100vw;
+			background: 
+				linear-gradient(45deg,rgb(255, 0, 98) 0%,rgba(212, 212, 226, 0) 60%),
+				linear-gradient(150deg, rgba(0, 0, 255, 1) 5%, rgba(255, 255, 0, 0) 80%),
+				linear-gradient(to bottom left,rgb(49, 190, 6) 5%,rgba(0, 0, 0, 0) 80%),
+				linear-gradient(315deg, hsl(60, 95%, 55%) 100%, hsla(35, 95%, 55%, 0) 70%);
+/*
+			background: 
+				linear-gradient(45deg, hsla(340, 100%, 55%, 1) 0%, hsla(340, 100%, 55%, 0) 70%);
+*/
+/*
+				linear-gradient(135deg, hsla(225, 95%, 50%, 1) 10%, hsla(225, 95%, 50%, 0) 80%),
+				linear-gradient(225deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%),
+				linear-gradient(315deg, hsla(35, 95%, 55%, 1) 100%, hsla(35, 95%, 55%, 0) 70%);
+*/
+			display: flex;
+			flex-direction: column;
+		}
+		nav{
+			padding: 30px 60px;
+/*			z-index: 1;*/
+		}
+		ul{
+			display: flex;
+			flex: row none;
+		}
+		li{
+			padding: 0 30px;
+			list-style: none;
+		}
+		li{
+			padding-right: 50px;
+		}
+		a{
+			background: rgba(0, 0, 0, 0.06);
+			position: relative;
+			border-radius: 50px;
+			transform: scale(1.15);
+			z-index: 4;
+		}
+		p:first-child{
+			white-space:pre-line;
+		}
+		article{
+			padding: 0 90px;
+		}
+		.highlighter{
+			transition: 0.3s cubic-bezier(0.14, 0.45, 0.82, 1.24);
+			background: white;
+			z-index: 3;
+/*			display: block;*/
+			position: absolute;
+			border-radius: 50px;
+			transform: scale(1.15);
+		}
+    </style>
+    <body>
+		<div class="container">
+			<nav>
+				<ul>
+					<li><a>Elements</a></li>
+					<li><a>History</a></li>
+					<li><a>Types</a></li>
+					<li><a>Behaviours</a></li>
+					<li><a>Resources</a></li>
+				</ul>
+			</nav>
+			<section>
+				<article>
+					<p>Entrepreneurship is the process of designing, launching and running a new business, which is often initially a small business. The people who create these businesses are called <a>entrepreneurs.</a>
+
+					<a>Entrepreneurship</a> has been described as the "capacity and willingness to develop, organize and manage a business venture along with any of its risks to make a profit." While definitions of entrepreneurship typically focus on the launching and running of businesses, due to the high risks involved in launching a start-up, a significant proportion of start-up businesses have to close due to "lack of funding, bad business decisions, an economic crisis, lack of market demand, or a combination of all of these."</p>
+
+					<p>A broader definition of the term is sometimes used, especially in the field of economics. In this usage, an Entrepreneur is an entity which has the ability to find and act upon opportunities to translate inventions or technologies into products and services: "The entrepreneur is able to recognize the commercial potential of the invention and organize the capital, talent, and other resources that turn an invention into a commercially viable innovation." In this sense, the term <a>"Entrepreneurship"</a> also captures innovative activities on the part of established firms, in addition to similar activities on the part of new businesses.</p>
+					
+					<p>Entrepreneurship is an act of being an <a>entrepreneur</a>, or "the owner or manager of a business enterprise who, by risk and initiative, attempts to make profits".[6] Entrepreneurs act as managers and oversee the launch and growth of an enterprise. Entrepreneurship is the process by which either an individual or a team identifies a business opportunity and acquires and deploys the necessary resources required for its exploitation. Early-19th-century French economist Jean-Baptiste Say provided a broad definition of entrepreneurship, saying that it "shifts economic resources out of an area of lower and into an area of higher productivity and greater yield". <a>Entrepreneurs</a> create something new, something different—they change or transmute values. Regardless of the firm size, big or small, they can partake in entrepreneurship opportunities. The opportunity to become an entrepreneur requires four criteria. First, there must be opportunities or situations to recombine resources to generate profit. Second, entrepreneurship requires differences between people, such as preferential access to certain individuals or the ability to recognize information about opportunities. Third, taking on risk is a necessity. Fourth, the entrepreneurial process requires the organization of people and resources.</p>
+					
+					<p>The <a>entrepreneur</a> is a factor in and the study of entrepreneurship reaches back to the work of Richard Cantillon and Adam Smith in the late 17th and early 18th centuries. However, entrepreneurship was largely ignored theoretically until the late 19th and early 20th centuries and empirically until a profound resurgence in business and economics since the late 1970s. In the 20th century, the understanding of entrepreneurship owes much to the work of economist Joseph Schumpeter in the 1930s and other Austrian economists such as Carl Menger, Ludwig von Mises and Friedrich von Hayek. According to Schumpeter, an entrepreneur is a person who is willing and able to convert a new idea or invention into a successful innovation. <a>Entrepreneurship</a> employs what Schumpeter called "the gale of creative destruction" to replace in whole or in part inferior innovations across markets and industries, simultaneously creating new products including new business models. In this way, creative destruction is largely responsible for the dynamism of industries and long-run economic growth. The supposition that entrepreneurship leads to economic growth is an interpretation of the residual in endogenous growth theory and as such is hotly debated in academic economics. An alternative description posited by Israel Kirzner suggests that the majority of innovations may be much more incremental improvements such as the replacement of paper with plastic in the making of drinking straws.</p>
+				</article>
+			</section>
+		</div>
+<script>
+	const triggers = document.querySelectorAll("a");
+	const highlight = document.createElement("span");
+	const navigation = document.querySelector("nav");
+	const container = document.querySelector(".container");
+	highlight.classList.add("highlighter");
+	document.documentElement.appendChild(highlight);
+	
+	function trigger(){
+		const coordinate = this.getBoundingClientRect();
+		console.log(coordinate);
+		highlight.style.width = `${coordinate.width}px`;
+		highlight.style.height= `${coordinate.height}px`;
+		highlight.style.top = `${coordinate.top + window.scrollY}px`;
+		highlight.style.left = `${coordinate.left}px`;
+	}
+	triggers.forEach(x => x.addEventListener("mouseover", trigger));
+</script>
+	</body>
+</html>

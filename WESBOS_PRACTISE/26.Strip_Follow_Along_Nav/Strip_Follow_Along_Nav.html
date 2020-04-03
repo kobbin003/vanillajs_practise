@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content=width=device-width, initial-scale=1>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300|Rubik&display=swap" rel="stylesheet">
+    </head>
+    <style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.container{
+/*			width: 100vw;*/
+			height: 100vh;
+			background:linear-gradient(45deg,blue 0%,rgba(0, 0, 0, 0) 40%),
+					   linear-gradient(135deg, green,rgba(0, 0, 0, 0) 60%),
+					   linear-gradient(315deg,red,rgba(0, 0, 0, 0) 60%),
+					   linear-gradient(225deg,yellow,rgba(0, 0, 0, 0) 80%),
+					   linear-gradient(#d17a23,#d17a23);
+		}
+		
+		.nav{
+			width: 100vw;
+			display: flex;
+			justify-content: center;
+			padding: 20px;
+		}
+		.list{
+			width: 40%;
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-around;
+		}
+		.list > li{
+/*			flex:1;*/
+			list-style: none;
+			display:flex;
+			flex-direction: column;
+			align-items: center; 
+			overflow: hidden;
+/*			//have to make the width of the <li> as small as its length. or else the mouseenter event doesnt work at the element exactly.*/
+		}
+		/* this below, is only for <a> which are direct child of <li> which ,in turn, are direct child of ".list" class*/
+		.list > li > a{
+			cursor: pointer;
+/*			display: inline;*/
+			padding: 5px 10px;
+			background: rgba(80, 77, 77, 0.30);
+			border: 1px solid rgba(128, 128, 128, 0.40);
+			border-radius: 5px;
+			color: #fcf543;
+			font-weight: 500;
+			text-decoration: none;
+			display: block;
+		}
+		.aboutMe, .coursesList, .linksList{
+			padding: 40px;
+			max-width: 290px;
+/*			left: 200px;*/
+		}
+
+		.dropDown{
+/*			padding:20px;*/
+			position: absolute;
+			top: 60px;
+			display:none;
+			opacity: 0;
+			will-change: opacity;
+			z-index: 1;
+			transition: opacity 0.5s ease;
+		}
+/*		// there is something about this drop down //*/
+/*
+		.dropDown{
+			opacity: 0;
+    position:absolute;
+    overflow: hidden;
+    padding: 20px;
+    top: -20px;
+    border-radius: 2px;
+    transition: all 0.5s;
+    transform: translateY(100px);
+    will-change: opacity;
+    display: none;
+		}
+*/
+		.activeDisplay {
+			display:block;
+		}
+		.activeOpacity{
+			opacity: 1 ;
+		}
+		.dropDown > li{
+			list-style: none;
+		}
+		.dropDown > li > a{
+			cursor: pointer;
+			display: inline;
+			padding: 5px 10px;
+			font-weight: 400;
+			color: black;
+			text-decoration: none;
+		}
+		/* B A C K G R O U N D*/
+		.dropdownBackground{
+			position: absolute;
+			z-index: 0;
+			transition: top 0.5s cubic-bezier(0.25, 0.1, 0.06, 0.99),
+				left 0.5s cubic-bezier(0.25, 0.1, 0.06, 0.99);
+		}
+		.background{
+			position: absolute;
+			transition: height 0.1s ease,
+				width 0.1s ease;
+			border-radius: 15px;
+		}
+/*		// arrow is not moving nicely ???????????*/
+		.arrow{
+			height: 40px;
+			width: 40px;
+			z-index: 0;
+			background: white;
+			transform: rotate(45deg);
+			position: absolute;
+			top: -2px;
+			display: none;
+			opacity: 0;
+		}
+		.activeArrowdisplay{
+			display: block;
+		}
+		.activeArrowopacity{
+			opacity: 1;
+		}
+		.activeBackground{
+/*
+			height: 50px;
+			width: 50px;
+*/
+			background: white;
+		}
+    </style>
+    <body>
+		<div class="container">
+			<nav class="nav">
+				<ul class="list">
+					<li>
+						<a href="#">About Me</a>
+						<div class="aboutMe dropDown">
+							<p>My name is Duyu Kobin and I am learning web development.<br>
+							So far so good</p>
+						</div>
+					</li>
+					<li>
+						<a href="#">Courses</a>
+						<ul class="coursesList dropDown">
+							<li>HTML</li>
+							<li>CSS</li>
+							<li>Javascript</li>
+							<li>SASS</li>
+							<li>Command Line</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Other Links</a>
+						<ul class="linksList dropDown">
+							<li><a href="https://www.google.com/?client=safari" target="_blank">Gooogle</a></li>
+							<li><a href="https://en.wikipedia.org/wiki/Main_Page" target="_blank">Wikipedia</a></li>
+							<li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+							<li><a href="https://mail.google.com/mail/u/0/?ogbl#inbox" target="_blank">Gmail</a></li>
+						</ul>
+					</li>
+				</ul>
+				<div class="dropdownBackground">
+					<div class="arrow"></div>
+					<div class="background"></div>
+				</div>
+			</nav>
+<!--
+			<div class="aboutMe">
+				<p>My name is Duyu Kobin and I am learning web development.
+				So far so good</p>
+			</div>
+			<br>
+			<div class="courses">
+				<ul class="coursesList">
+					<li>HTML</li>
+					<li>CSS</li>
+					<li>Javascript</li>
+					<li>SASS</li>
+					<li>Command Line</li>
+				</ul>
+			</div>
+			<br>
+			<div class="otherLinks">
+				<ul class="linksList">
+					<li><a href="https://www.google.com/?client=safari" target="_blank">Gooogle</a></li>
+					<li><a href="https://en.wikipedia.org/wiki/Main_Page" target="_blank">Wikipedia</a></li>
+					<li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+					<li><a href="https://mail.google.com/mail/u/0/?ogbl#inbox" target="_blank">Gmail</a></li>
+				</ul>
+			</div>
+-->
+		</div>
+		
+	<script>
+		const thrinity = document.querySelectorAll(".list > li");
+		const movingBackground = document.querySelector(".dropdownBackground");
+		const movingBackgroundwhite = document.querySelector(".background");
+		const nav = document.querySelector(".nav");
+		const dropDown = document.querySelectorAll(".dropDown");
+		
+		//dimeneion of the dropdown 
+		var dropdownWidth;
+		var dropdownHeight;
+		var dropdownTop;
+		var dropDownLeft;
+		
+		function mouseEnter(){
+			//for list
+			this.querySelector(".dropDown").classList.add("activeDisplay");
+			setTimeout(()=>{
+				if(this.querySelector(".dropDown").classList.contains("activeDisplay")){
+					this.querySelector(".dropDown").classList.add("activeOpacity")
+				}
+			},100);
+			console.log("enter");
+			
+			//for background
+			const dimensions = this.querySelector(".dropDown").getBoundingClientRect();
+			console.log(dimensions);
+//			dropdownHeight = this.querySelector(".dropDown").clientHeight;
+//			dropdownWidth = this.querySelector(".dropDown").clientWidth;
+			dropdownHeight = dimensions.height;
+			dropdownWidth = dimensions.width;
+			dropdownTop = dimensions.top;
+			dropDownLeft = dimensions.left;
+			
+			const paddingString = window.getComputedStyle(this.querySelector(".dropDown")).getPropertyValue('padding');
+			const padingValue = Number(paddingString.slice(0,paddingString.length-2));
+			movingBackgroundwhite.classList.add("activeBackground");
+			document.querySelector(".activeBackground").style.height= `${dropdownHeight}px`;
+			document.querySelector(".activeBackground").style.width= `${dropdownWidth}px`;
+			movingBackground.style.top= `${dropdownTop}px`;
+			movingBackground.style.left= `${dropDownLeft}px`;
+			
+			//for the toptriangle
+//			const arrowWidth = document.querySelector(".activeArrowopacity").offsetWidth;
+//			console.log(arrowWidth);
+			//40 is the width of the .arrow div., almost exactly it will be 40 * square root of 2;
+			document.querySelector(".arrow").style.left = `${dropdownWidth/2-40/2}px`;
+			document.querySelector(".arrow").classList.add("activeArrowdisplay");
+			setTimeout(()=>{
+				if(this.querySelector(".dropDown").classList.contains("activeDisplay")){
+					document.querySelector(".arrow").classList.add("activeArrowopacity")
+				}
+			},90);
+			
+			
+		}
+		function mouseLeave(){
+			this.querySelector(".dropDown").classList.remove("activeDisplay","activeOpacity");	
+			
+			//for background
+			document.querySelector(".activeBackground").style.height= `0px`;
+			document.querySelector(".activeBackground").style.width= `0px`;
+			movingBackgroundwhite.classList.remove("activeBackground");
+			
+			//for arrow
+			document.querySelector(".arrow").classList.remove("activeArrowdisplay","activeArrowopacity");
+			document.querySelector(".arrow").style.left = `0px`;
+		}
+		thrinity.forEach((x)=>x.addEventListener("mouseenter", mouseEnter));
+		thrinity.forEach((x)=>x.addEventListener("mouseleave", mouseLeave));
+		
+		
+    </script>
+    </body>
+</html>

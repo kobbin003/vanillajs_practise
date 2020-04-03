@@ -1,0 +1,40 @@
+- *** How to use css variables/custom properties ***
+:root{
+--var_name:var_value
+}
+property_name:var(--var_name)
+
+e.g:
+:root{
+                --color: #ffc600;
+                
+            }
+
+.imageholder{
+                background-color: var(--color);
+                
+            }
+
+
+-> (querySel...).dataset.data_name---> getting the value of data-data_name.
+
+-> style.property_name
+OR
+style.setProperty("property_name",propert_value)
+
+- documentElement:
+The documentElement property returns the documentElement of the document, as an Element object.
+For HTML documents the returned object is the <html> element.
+
+--- > <SHORT CIRCUIT EVALUATION >
+    LINK: https://codeburst.io/javascript-what-is-short-circuit-evaluation-ff22b2f5608c
+	
+	Falsey values:
+	- false
+	- null
+	- " "(empty string)
+	- 0
+	- NAN
+	- undefined
+	
+	in this 3rd <input> case, dataset.sizing = undefined, therefore suffix = " "; 
