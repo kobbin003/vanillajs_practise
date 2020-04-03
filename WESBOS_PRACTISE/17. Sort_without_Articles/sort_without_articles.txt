@@ -1,0 +1,26 @@
+CSS- A>
+-applying filter in the background-image by using ":: before" selector i.e we are applying filter on the "pseudo-element".
+https://css-tricks.com/apply-a-filter-to-a-background-image/
+
+B>
+-to adjust the position of element inside a "list"
+Use: i> line-height=0;
+     ii> insert <p> or <span> inside <li> and style it with "display: inline-block"(or else the line will be below the 'list-style').
+
+C>
+-instead of "SPLIT() AND SPLICE()", you can directly use "REPLACE()".
+
+D>
+-use of string literals to create and append elements.
+
+MY WAY V/S WESBOS WAY:
+- My function is big and does more than one work, i.e split, splice and then sort.
+Whereas Wesbos' function are small and does a single job.
+
+??? Regular expression
+??? Comparison of array; as I did on my "sorter method".----DONE
+
+EEEEE>
+- use join method to convert array into a string before comparing.
+OR ELSE, if the first element of both the array is same, then there won't be any result because it compares only the first item of the arrays.
+See: comparing array.pdf

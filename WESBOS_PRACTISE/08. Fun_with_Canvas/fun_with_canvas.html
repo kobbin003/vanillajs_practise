@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content=width=device-width, initial-scale=1>
+    </head>
+    <style>
+    </style>
+    <body>
+		<canvas id="draw" height="800px" width="800px"></canvas>
+    <script>
+		const draw = document.querySelector("#draw");
+		const drawItem = draw.getContext("2d");
+		drawItem.innerHeight= window.innerHeight;
+		drawItem.innerWidth = window.innerWidth;
+		
+		drawItem.strokeStyle = "#BADA55";
+		drawItem.lineJoin = "round";
+		drawItem.lineCap = "round";
+		
+		let isDrawing = false;
+		drawItem.fillStyle = "#FF0000";
+drawItem.fillRect(0,0,150,175);
+    </script>
+
+		</body>
+</html>

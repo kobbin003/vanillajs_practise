@@ -1,0 +1,24 @@
+For "keydown event" addeventlistener to window.
+
+- <kbd>
+- <audio>
+
+- data-***
+
+-keydown event.
+
+- queryselector(`tagname/classname[data-***=$(e.keyCode)]`)
+-  event parameter "e".
+- keyCode; (https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_event_key_keycode3)
+
+- setTimeout(function(){//code block//}, interval); ---> used for removing a class after certain period.
+
+- Note: the margin effects the position of the keys when key is pressed. Therefore use a <div> for each .key <div>
+
+- template literals i.e ${***}
+
+- array_name.foreach(function(parameter){ //code block//});
+OR
+- array_name.foreach(lambda expression);
+
+-foreach (https://www.w3schools.com/jsref/jsref_foreach.asp)
