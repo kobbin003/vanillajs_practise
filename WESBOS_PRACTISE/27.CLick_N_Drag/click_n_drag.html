@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content=width=device-width, initial-scale=1>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300|Rubik&display=swap" rel="stylesheet">
+    </head>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.body{
+			display: flex;
+			position: relative;
+		}
+		.container{
+			height: 400px;
+			padding: 100px;
+			align-items: center;
+			justify-content: center;
+			white-space: nowrap;
+			overflow-x: scroll;
+			will-change: transform;
+			position: relative;
+			transform: scale(0.98);
+			perspective: 900px;
+		}
+		.active{
+			background-color: rgba(181, 180, 180, 0.51);
+			transform: scale(1.05);
+			cursor: grabbing;
+		}
+/*
+		.container{
+			height: 400px;
+			padding: 100px;
+			width: 100%;
+			border: 1px solid white;
+			overflow-x: scroll;
+			overflow-y: hidden;
+			white-space: nowrap;
+			user-select: none;
+			cursor: pointer;
+			transition: all 0.2s;
+			transform: scale(0.98);
+			will-change: transform;
+			position: relative;
+			background: rgba(255,255,255,0.1);
+			font-size: 0;
+			perspective: 500px;
+		}
+*/
+/*
+		.content{
+			height: 400px;
+			width: 180px;
+		}
+*/
+		.content{
+			 width: 300px;
+			 height: calc(100% - 40px);
+			 display: inline-flex;
+			 align-items: center;
+			 justify-content: center;
+			 font-size: 80px;
+			 font-weight: 100;
+			 color: rgba(0,0,0,0.15);
+			 box-shadow: inset 0 0 0 10px rgba(0,0,0,0.15);
+			 user-select:none;
+/*			margin: -90px;*/
+		}
+		.content:nth-child(even){
+			padding-top: 5px;
+			background: grey;
+			transform:  scaleX(1.45) rotateY(45deg);
+		}
+		.content:nth-child(odd){
+			transform:  scaleX(1.45) rotateY(-45deg);
+		}
+		
+	</style>
+    <body>
+		<div class="container">
+			<div class="content content1">1</div>
+			<div class="content content2">2</div>
+			<div class="content content3">3</div>
+			<div class="content content4">4</div>
+			<div class="content content5">5</div>
+			<div class="content content6">6</div>
+			<div class="content content7">7</div>
+			<div class="content content8">8</div>
+			<div class="content content9">9</div>
+			<div class="content content10">10</div>
+			<div class="content content11">11</div>
+			<div class="content content12">12</div>
+			<div class="content content13">13</div>
+			<div class="content content14">14</div>
+			<div class="content content15">15</div>
+			<div class="content content16">16</div>
+			<div class="content content17">17</div>
+			<div class="content content18">18</div>
+			<div class="content content19">19</div>
+			<div class="content content20">20</div>
+			<div class="content content21">21</div>
+			<div class="content content22">22</div>
+			<div class="content content23">23</div>
+			<div class="content content24">24</div>
+		</div>
+	<script>
+		const container = document.querySelector(".container");
+		let isdown = false;
+		let startX;
+		let scrollLeft;
+//		document.body.addEventListener("mousedown", (e)=>console.log(e));
+		container.addEventListener("mousedown", (e)=>{
+			isdown = true;
+			container.classList.add("active");
+			//* * * * * * * offset v/x pagesx v/s offsetleft * * * * * * *
+//			strartX = e.pageX - container.offsetLeft;
+//			let offsetX = e.offsetX;
+//			let pageX = e.pageX;
+//			let offsetLeft = container.offsetLeft;
+//			console.log(e);
+//			console.log("offsetX: " + offsetX);
+//			console.log("pageX: " + pageX);
+//			console.log("offsetLeft: " + offsetLeft);
+//			console.log("diff: " + (pageX-offsetX));
+			// * * * * * * * * * * * * *
+			startX = e.pageX - container.offsetLeft;
+			scrollLeft = container.scrollLeft;//how much scrolled when mousedown.
+			console.log(scrollLeft);
+		});
+		container.addEventListener("mouseup", () => {
+			isdown = false;
+			container.classList.remove("active");
+		});
+		container.addEventListener("mouseleave", () => {
+			isdown = false;
+			container.classList.remove("active");
+		});
+		container.addEventListener("mousemove", (e) => {
+//			console.log(e);
+			if(!isdown) return;
+			console.log("mouse is down");
+			const x = e.pageX - container.offsetLeft;
+			const walk =  (x-startX);//how far we have deviated from the original "down" position.
+			container.scrollLeft = scrollLeft-walk;//if we don't put scrollLeft, the slide always starts with "scrollLeft=0" position i.e it starts from the start.
+			// -walk because for -ve deviation, we want +ve scrollLeft direction and vice-versa.
+			console.log(container.scrollLeft);
+		});
+    </script>
+    </body>
+</html>

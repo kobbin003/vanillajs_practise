@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content=width=device-width, initial-scale=1>
+		<title>DRUM_Kit</title>
+        <style>
+            *{
+                margin=0;
+                padding: 0;
+            }
+            body{
+                width: 100vw;
+                height: 100vh;
+                color: white;
+                font-size: 24px;
+            }
+            .container{
+                background-image: url(background.jpeg);
+                background-position: center;
+                background-blend-mode:darken;
+                height: 100%;
+                width: 100%;
+            }
+            .drum{
+                display: flex;
+                flex-direction: row;
+                margin-left: 85px;
+            }
+            .keydiv{
+                width: 12%;
+            }
+            .key{
+                margin: 250px 0;
+                width: 33%;
+                height: 7vh;
+                border: 2px solid black;
+                padding: 15px;
+                text-align: center;
+                border-radius: 5%;
+                background-color: rgba(0, 0, 0, 0.42);
+                transition: all 0.07s;
+/*                position: absolute;*/
+            }
+            .kbd{
+                font-size: 
+            }
+            p{
+                font-size: 50%;
+            }
+            .playing{
+                transform: scale(1.1);
+                border: 2px solid #eac708;
+                box-shadow: 0 0 7px #ffc600;
+/*                margin-left: -5px;*/
+/*                margin: 250px 32px;*/
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="drum">
+                <div class="keydiv">
+                    <div data-key="65" class="key">
+                    <kbd>A</kbd>
+                    <p>kick</p>
+                    </div>
+                </div>
+                <div class="keydiv">
+                    <div data-key="83" class="key">
+                    <kbd>S</kbd>
+                    <p>Snare</p>
+                    </div>
+                </div>
+                <div class="keydiv">
+                    <div data-key="68" class="key">
+                    <kbd>D</kbd>
+                    <p>Clap</p>
+                    </div>
+                </div>
+                <div class="keydiv">
+                    <div data-key="70" class="key">
+                        <kbd>F</kbd>
+                        <p>HiHat</p>
+                    </div>
+                </div>
+                <div class="keydiv">
+                    <div data-key="71" class="key">
+                    <kbd>G</kbd>
+                    <p>OpenHat</p>
+                    </div>
+                </div>
+                <div class="keydiv">
+                    <div data-key="72" class="key">
+                    <kbd>H</kbd>
+                    <p>Ride</p>
+                    </div>
+                </div>
+                <div class="keydiv">
+                    <div data-key="74" class="key">
+                    <kbd>J</kbd>
+                    <p>Conga</p>
+                    </div>
+                </div>
+                <div class="keydiv">
+                    <div data-key="75" class="key">
+                    <kbd>K</kbd>
+                    <p>Cowbell</p>
+                    </div>
+                </div>
+                
+            </div>
+            <audio data-key="65" src="808-Kicks37.wav"></audio>
+            <audio data-key="83" src="808-Snare38.wav"></audio>
+            <audio data-key="68" src="808-Clap01.wav"></audio>
+            <audio data-key="70" src="808-HiHats07.wav"></audio>
+            <audio data-key="71" src="808-OpenHiHats05.wav"></audio>
+            <audio data-key="72" src="808-Ride1.wav"></audio>
+            <audio data-key="74" src="808-Conga1.wav"></audio>
+            <audio data-key="75" src="808-Cowbell3.wav"></audio>
+        </div>
+        
+        <script>
+            /*window.addEventListener("keydown",function(e){
+//                var audio=document.querySelector(`audio[data-key="${e.keyCode}"]`);
+                var audio=document.querySelector(`audio[data-key="${e.keyCode}"]`);
+                audio.currentTime=0;
+                audio.play();
+                
+                var key=document.querySelector(`.key[data-key="${e.keyCode}"]`);
+                key.classList.add("playing");
+//                setTimeout(function(){
+//                    key.classList.remove("playing");
+//                },90);
+                
+                function removeTransition(){
+                    this.classList.remove("playing");
+                }
+//                var allkey=document.querySelectorAll(".key");
+//                //1>using array.foreach(by queryselectorall) and lambda expression
+//                allkey.forEach(key=>key.addEventListener("transitionend",removeTransition));
+//                //OR
+//                //2>using array.foreach(by queryselectorall) without lambda expression
+////                allkey.forEach(function(x){
+////                    x.addEventListener("transitionend",removeTransition);
+////                });
+//                //OR
+//                //3>without using foreach
+                key.addEventListener("transitionend",removeTransition);
+            });*/
+
+            window.addEventListener("keydown",function(e){
+                var audio=document.querySelector(`audio[data-key="${e.keyCode}"]`);
+                audio.currentTime=0;
+                audio.play();
+				
+				var key=document.querySelector(`div[data-key="${e.keyCode}"]`);
+				key.classList.add("playing");
+				
+//				key.addEventListener("transitionend",function(){this.classList.remove("playing")});
+				key.addEventListener("transitionend",()=>key.classList.remove("playing"));
+				/* this.classList.remove("playing") won't work here because, arrow function doesnot bind "this" like a normal function. */
+            });
+        </script>
+    </body>
+</html>

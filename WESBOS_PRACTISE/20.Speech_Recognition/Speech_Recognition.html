@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content=width=device-width, initial-scale=1>
+    </head>
+    <style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			width: 100vw;
+			height: 100vh;
+			background-color: #ffce00;
+/*			background-image: linear-gradient(rgba(0, 0, 0, 0.08),rgba(0, 0, 0, 0.08));*/
+			font-family: 'helvetica neue';
+			font-style: italic;
+			font-weight: 300;
+/*
+			display: flex;
+			align-items: center;
+			justify-content: center;
+*/
+		}
+		.words{
+			max-width: 550px;
+			background: white;
+			border-radius: 5px;
+			box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.06);
+			padding: 1rem 2rem 1rem 5rem;
+/*			background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 30px;*/
+			background: linear-gradient(to bottom, #d9eaf3 3%, white 3%, white 100%);
+/*			background: linear-gradient(to bottom, #d9eaf3,#d9eaf3 20%, white 20%, white 100%);*/
+			background-size: 100% 3rem;
+/*			//  why 3rem height???????  maybe it is to make <p> just at the base of the line*/
+			position: relative;
+			line-height: 3rem;
+/*			// line-height should be same as the height of the background-size, so that each new <p> will be at the base                   of the line*/
+			top: 100px;
+			left: 200px;
+		}
+		p{
+/*			margin: 0 0 3rem;*/
+		}
+		.words:before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      top: 0;
+      left: 60px;
+      bottom: 0;
+      border: 1px solid rgba(239, 228, 228, 0.79);
+			
+    }
+/*
+		
+
+    .words {
+      max-width: 500px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 5px;
+      box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+      padding: 1rem 2rem 1rem 5rem;
+      background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
+      background-size: 100% 3rem;
+      position: relative;
+      line-height: 3rem;
+    }
+    
+    p {
+      margin: 0 0 3rem;
+    }
+
+*/
+    </style>
+    <body>
+		<div class="words" contenteditable>
+	    </div>
+    </body>
+    <script>
+		  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  const recognition = new SpeechRecognition();
+//  recognition.interimResults = true;
+//		recognition.continuous = true;
+  recognition.lang = 'en-US';
+  
+  let p = document.createElement('p');
+//		console.log(p);
+  const words = document.querySelector('.words');
+//  words.appendChild(p);
+
+  recognition.addEventListener('result', e => {
+//	  console.log(words);
+    const transcript = Array.from(e.results)
+	                   .map(x=>x[0])
+	                   .map(y=>y.transcript)
+					   .join(' ');
+	  //OR
+//	  const transcript = (Array.from(e.results))[0][0].transcript;
+	  console.log(transcript);
+//	  const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
+//      p.textContent = transcript;
+	  p = document.createElement('p');
+	  p.textContent = transcript;
+        words.appendChild(p);
+	  
+	  //* don't need if interimResults is false
+//	  if(e.results.isFinal){
+//		  p = document.createElement('p');
+//        words.appendChild(p);
+//	  }
+//
+  });
+
+  recognition.addEventListener('end', recognition.start);
+
+  recognition.start();
+    </script>
+</html>

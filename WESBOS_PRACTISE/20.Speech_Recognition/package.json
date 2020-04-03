@@ -1,0 +1,20 @@
+{
+  "name": "19.speech_recognition",
+  "version": "1.0.0",
+  "description": "latest",
+  "main": "kob",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "b"
+  },
+  "repository": {
+    "type": "git",
+    "url": "takha"
+  },
+  "keywords": [
+    "aa"
+  ],
+  "author": "kobb",
+  "license": "ISC"
+}
