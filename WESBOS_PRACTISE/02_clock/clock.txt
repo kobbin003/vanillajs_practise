@@ -1,3 +1,0 @@
-- position: absolute;  --> it stacks one on top of another.
-
--set width of div so that the size does not fluctuate resulting in shifting of position.like in the case of am/pm.

@@ -1,7 +1,0 @@
--->array.some();
--->array.every();
--->array.find();
--->array.findIndex();
-
-
--->array.splice(findIndex function, no. of indexes succeeding the choosen index);
